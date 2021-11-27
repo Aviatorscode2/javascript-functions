@@ -80,7 +80,7 @@ const iterate = (state, iterations) => {
 };
 
 const main = (pattern, iterations) => {
-    const result = iterate(statesPattern[pattern], iterations);
+    const result = iterate(startPatterns[pattern], iterations);
     result.forEach(s => console.log(printCells(s)));
 };
 
