@@ -62,13 +62,13 @@ const willBeAlive = (cell, state) => {
 
 const calculateNext = (state) => {
     const { bottomLeft, topRight } = corners(state);
-    const nextState = [];
+    const result = [];
     for (let y = topRight[1] + 1; y >= bottomLeft[1] - 1; y--) {
         for (let x = bottomLeft[0] - 1; x <= topRight[0] + 1; x++) {
             result = result.concat(willBeAlive([x, y], state) ? [x, y] : []);
         }
     }
-    return nextState;
+    return result;
 };
 
 const iterate = (state, iterations) => {
@@ -81,7 +81,7 @@ const iterate = (state, iterations) => {
 
 const main = (pattern, iterations) => {
     const result = iterate(startPatterns[pattern], iterations);
-    result.forEach(s => console.log(printCells(s)));
+    return result.forEach(s => console.log(printCells(s)));
 };
 
 const startPatterns = {
